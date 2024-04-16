@@ -1,0 +1,12 @@
+**/.idea/*
+**/.terraform*
+**/terraform.tfstate*
+**/terraform.tfstate.backup*
+**/tfplan*
+**/.env*
+**/*.zip*
+**/build/*
+**/node_modules/*
+
+
+.DS_Store

@@ -1,0 +1,24 @@
+{
+  "name": "fastify-serverless-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "build": "esbuild ./src/server.ts --bundle --platform=node --outfile=build/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.2",
+    "esbuild": "0.20.2",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.0"
+  }
+}
