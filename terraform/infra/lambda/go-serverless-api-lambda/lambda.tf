@@ -24,7 +24,7 @@ resource "aws_lambda_function" "lambda_fn" {
   }
 
   layers = [
-    "arn:aws:lambda:${var.region}:753240598075:layer:LambdaAdapterLayerArm64:16"
+    "arn:aws:lambda:${var.region}:753240598075:layer:LambdaAdapterLayerArm64:21"
   ]
 }
 

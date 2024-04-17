@@ -12,19 +12,13 @@ func main() {
 	{
 		publicPath.GET("/", func(c *gin.Context) {
 			c.JSON(200, gin.H{
-				"message": "Hello from /",
+				"message": "Hello from go-serverless-api",
 			})
 		})
 
 		publicPath.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
-			})
-		})
-
-		publicPath.GET("/ping2", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"message": "pong2",
 			})
 		})
 	}

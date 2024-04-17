@@ -43,10 +43,10 @@ resource "aws_api_gateway_integration" "root_integration" {
 }
 
 
-output "go_serverless_api_proxy_integration" {
+output "fastify_serverless_api_proxy_integration" {
   value = aws_api_gateway_integration.proxy_integration
 }
 
-output "go_serverless_api_root_integration" {
+output "fastify_serverless_api_root_integration" {
   value = aws_api_gateway_integration.root_integration
 }

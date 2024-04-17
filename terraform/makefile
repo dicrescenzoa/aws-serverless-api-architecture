@@ -4,6 +4,9 @@
 -include .env
 export
 
+.PHONY: build-all
+build-all:
+	cd ../go-serverless-api && make buildLambda && cd ../fastify-serverless-api && make buildLambda
 
 .PHONY: create-base
 create-base:
@@ -15,7 +18,7 @@ destroy-base:
 
 .PHONY: create-infra
 create-infra:
-	cd infra && make tf-init && make tf-plan && make tf-apply
+	make build-all && cd infra && make tf-init && make tf-plan && make tf-apply
 
 .PHONY: destroy-infra
 destroy-infra:
@@ -27,6 +30,6 @@ destroy-all:
 
 .PHONY: create-all
 create-all:
-	make create-base && make create-infra
+	make create-base &&  make create-infra
 
 
