@@ -10,6 +10,7 @@ This repository contains the code for the AWS Serverless API Architecture blog p
 - Node 20.10.0
 - Go 1.22.1
 - Terraform 1.5.5
+- Docker
 
 ## fastify-serverless-api
 This directory contains the code of a simple Fastify API service.
@@ -39,7 +40,20 @@ make create-all
 make create-infra
 ```
 
-3. To destroy the infrastructure run:
+Note: this will create 3 lambda:
+- [fastify-serverless-api-lambda (ZIP)](terraform%2Finfra%2Flambda%2Ffastify-serverless-api-lambda)
+- [go-serverless-api-lambda(ZIP)](terraform%2Finfra%2Flambda%2Fgo-serverless-api-lambda)
+- [go-serverless-api-lambda-docker(docker)](terraform%2Finfra%2Flambda%2Fgo-serverless-api-lambda-docker)
+
+3. To destroy all infrastructure run:
 ```bash
 make destroy-all
 ```
+
+## Commands
+- `make create-all`: Create all infrastructure
+- `make create-infra`: Create only the lambda infrastructure and update the api gateway
+- `make create-base`: Create the base infrastructure like terraform state resources and ecr for the docker lambda
+- `make destroy-all`: Destroy all infrastructure
+- `make destroy-infra`: Destroy only the lambda infrastructure and api gateway
+- `make destroy-base`: Destroy the base infrastructure 

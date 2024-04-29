@@ -7,6 +7,8 @@ tf-init:
 	-var region=$(region) \
 	-var account_number=$(account_number) \
 	-var project_name=$(project_name) \
+	-var aws_profile=$(aws_profile) \
+	-backend-config='profile=$(aws_profile)' \
 	-backend-config='bucket=terraform-state-$(project_name)-$(environment)' \
 	-backend-config='key=tfstate/$(project_name)-$(environment).tfstate' \
 	-backend-config='region=$(region)' \
@@ -21,6 +23,7 @@ tf-plan:
 	-var region=$(region) \
 	-var account_number=$(account_number) \
 	-var project_name=$(project_name) \
+	-var aws_profile=$(aws_profile) \
 	-out=tfplan
 
 .PHONY: tf-apply
@@ -34,4 +37,5 @@ tf-destroy:
 	-var region=$(region) \
 	-var account_number=$(account_number) \
 	-var project_name=$(project_name) \
+	-var aws_profile=$(aws_profile) \
 	-auto-approve

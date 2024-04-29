@@ -12,6 +12,7 @@ terraform {
 
 provider "aws" {
   region = var.region
+  profile = var.aws_profile
 }
 
 module "go-serverless-api-lambda" {
@@ -29,6 +30,19 @@ module "go-serverless-api-lambda" {
 
 module "fastify-serverless-api-lambda" {
   source = "./lambda/fastify-serverless-api-lambda"
+
+  aws_api_gateway_rest_api_execution_arn    = aws_api_gateway_rest_api.api_gateway.execution_arn
+  aws_api_gateway_rest_api_id               = aws_api_gateway_rest_api.api_gateway.id
+  aws_api_gateway_rest_api_root_resource_id = aws_api_gateway_rest_api.api_gateway.root_resource_id
+
+  environment    = var.environment
+  region         = var.region
+  account_number = var.account_number
+  project_name   = var.project_name
+}
+
+module "go-serverless-api-lambda-docker" {
+  source = "./lambda/go-serverless-api-lambda-docker"
 
   aws_api_gateway_rest_api_execution_arn    = aws_api_gateway_rest_api.api_gateway.execution_arn
   aws_api_gateway_rest_api_id               = aws_api_gateway_rest_api.api_gateway.id
