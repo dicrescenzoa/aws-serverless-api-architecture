@@ -11,6 +11,7 @@ tf-plan:
 	-var region=$(region) \
 	-var account_number=$(account_number) \
 	-var project_name=$(project_name) \
+	-var aws_profile=$(aws_profile) \
 	-out=tfplan
 
 .PHONY: tf-apply
@@ -24,4 +25,5 @@ tf-destroy:
 	-var region=$(region) \
 	-var account_number=$(account_number) \
 	-var project_name=$(project_name) \
+	-var aws_profile=$(aws_profile) \
 	-auto-approve

@@ -6,7 +6,7 @@ export
 
 .PHONY: build-all
 build-all:
-	cd ../go-serverless-api && make buildLambda && cd ../fastify-serverless-api && make buildLambda
+	cd ../go-serverless-api && make buildLambda && make buildDocker && make pushDocker && cd ../fastify-serverless-api && make buildLambda
 
 .PHONY: create-base
 create-base:
